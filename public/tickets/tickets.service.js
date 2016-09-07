@@ -7,10 +7,17 @@
 
 	function TicketsService($http, $q){
 		
-		var statusCallback;
+		var statusCallback, selectedStatus;
 
 		function setStatus(status){
-			statusCallback(status)
+			selectedStatus = status;
+			if(statusCallback){
+				statusCallback(status);
+			}
+		}
+
+		function getSelectedStatus(){
+			return selectedStatus;
 		}
 
 		var registerStatusCallback = function(callback){
@@ -81,13 +88,31 @@
 			return deferred.promise;
 		}
 
+		function changeTicketStatus(id, status){
+			var deferred = $q.defer();
+			$http({
+				url: '/api/tickets/' + id + '/status',
+				method: 'PUT',
+				data: status
+			})
+			.success(function(data){
+				deferred.resolve(data);
+			})
+			.error(function(data){
+				deferred.reject(data);
+			})
+			return deferred.promise;
+		}
+
 		return {
 			getAllTickets: getAllTickets,
+			getSelectedStatus: getSelectedStatus,
 			getAssigneeList: getAssigneeList,
 			createTicket: createTicket,
 			setStatus: setStatus,
 			registerStatusCallback: registerStatusCallback,
-			getTicketDetails: getTicketDetails
+			getTicketDetails: getTicketDetails,
+			changeTicketStatus: changeTicketStatus
 		}
 	}
 })(angular);

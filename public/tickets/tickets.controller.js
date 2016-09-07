@@ -7,7 +7,7 @@
 
 	function TicketsController($scope, $interval, ticketList, TicketsService){
 		$scope.ticketList = ticketList;
-		$scope.selectedStatus;
+		$scope.selectedStatus = TicketsService.getSelectedStatus();
 
 		TicketsService.registerStatusCallback(function(status){
 			$scope.selectedStatus = status;

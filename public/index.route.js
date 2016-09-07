@@ -5,10 +5,12 @@
 	.module('angular-ticketing-app')
 	.config(routerConfig);
 
-  function routerConfig($stateProvider, $locationProvider, $urlRouterProvider) {
+  function routerConfig($stateProvider, $locationProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
+	$urlMatcherFactoryProvider.strictMode(false);
+	$urlRouterProvider.otherwise('/tickets');
     $stateProvider
 		.state('home', {
-			url: '/',
+			url: '/tickets',
 			resolve: {
 				ticketList: function(TicketsService){
 					return TicketsService.getAllTickets();
@@ -33,7 +35,7 @@
 			}
 		})
 		.state('home.create-ticket',{
-			url: '^/tickets/new',
+			url: '/new',
 			views: {
 				"main@home": {
 					templateUrl: 'create/create-ticket.html',
@@ -42,7 +44,7 @@
 			}
 		})
 		.state('home.ticket-details',{
-			url: '^/tickets/{id}',
+			url: '/{id}',
 			views: {
 				"main@home": {
 					templateUrl: 'details/ticket-details.html',
@@ -51,6 +53,5 @@
 			}
 		});
 		$locationProvider.html5Mode(true);
-		$urlRouterProvider.otherwise('/');
   }
 })(angular);

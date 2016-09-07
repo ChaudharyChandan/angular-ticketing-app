@@ -18,8 +18,8 @@
 		});
 
 		$scope.setStatus = function(status){
-			$scope.selectedStatus = status;
 			TicketsService.setStatus(status);
+			$scope.selectedStatus = status;
 			$state.go('home');
 		}
 	}

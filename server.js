@@ -104,7 +104,11 @@ app.get('/api/assignees', function(req, res){
 			res.json(JSON.parse(data));
 		}
   });
-})
+});
+
+app.all('/*', function(req, res, next) {
+    res.sendFile('public/index.html', { root: __dirname });
+});
 
 app.listen(app.get('port'), function() {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
