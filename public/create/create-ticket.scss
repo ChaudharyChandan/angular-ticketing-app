@@ -1,0 +1,132 @@
+.new-ticket-section{
+	display: flex;
+	padding: 50px 0 20px 50px;
+	&>form{
+		width: auto;
+		input{
+			font-size: 15px;
+			outline: 0;
+			border: 0;
+			border-radius: 4px;
+			text-indent: 10px;
+			border: 1px solid #e3e3e3;
+		}
+		&>section{
+			display: flex;
+			margin-bottom: 30px;
+			&>div:first-of-type{
+				width: 100px;
+				text-align: right;
+				margin-right: 20px;
+				line-height: 30px;
+			}
+		}
+		.customer-name{
+			&>div{
+				line-height: 30px;
+				input{
+					width: 300px;
+					height: 30px;
+				}
+			}
+		}
+		.customer-info{
+			input{
+				width: 300px;
+				height: 30px;
+			}
+			&>div{
+				margin-right: 20px;
+				line-height: 30px;
+			}
+			&>div:nth-of-type(3){
+				width: 50px;
+			}
+			&>div:last-of-type{
+				margin-right: 0;
+			}
+		}
+		.ticket-type{
+			&>div:last-of-type{
+				display: flex;
+				align-items: center;
+				label{
+					margin-right: 20px;
+					font-weight: 200px;
+				}
+				input{
+					margin-right: 10px;
+				}
+			}
+		}
+		.ticket-subject{
+			input{
+				width: 694px;
+				height: 30px;
+			}
+		}
+		.ticket-description{
+			textarea{
+				padding: 5px 10px;
+				width: 694px;
+				outline: 0;
+				border: 0;
+				border-radius: 4px;
+				border: 1px solid #e3e3e3;
+				font-size: 16px;
+			}
+		}
+		.add-assignee{
+			.assignee_list{
+				select option{
+					font-size: 20px;
+				}
+			}
+		}
+		.submit-btn{
+			display: flex;
+			justify-content: space-between;
+			padding-left: 120px;
+			button{
+				padding: 10px 15px;
+				border: 0;
+				outline: 0;
+				border-radius: 2px;
+				color: #fff;
+				font-size: 16px;
+				cursor: pointer;
+				&:first-of-type{
+					background-color:#5f9ea0;
+					&:hover{
+						background-color:#5EC7D2;
+					}	
+				}
+				&:last-of-type{
+					background-color: #d25e5e;
+					&:hover{
+						background-color: #98291e;
+					}	
+				}
+			}
+		}
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {
+        height:30px;
+        line-height:30px;
+        background-color: #fff;
+		width: 150px;
+		outline: 0;
+    } 
+}
+select::-moz-focus-inner { 
+    border: 0;
+    padding: 0;
+}
+@-moz-document url-prefix() {
+    select {
+        padding: 15px 0!important;
+    }
+}

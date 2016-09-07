@@ -1,0 +1,21 @@
+{
+  "name": "angular-ticketing-system",
+  "version": "1.0.0",
+  "description": "Customer Complaint Management",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chandan Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-sass": "^2.3.2"
+  }
+}

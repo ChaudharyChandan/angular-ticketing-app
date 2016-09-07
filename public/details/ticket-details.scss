@@ -1,0 +1,35 @@
+.ticket-details{
+	margin: 30px 50px;
+	width: 500px;
+	height: auto;
+	background-color: #fff;
+	header{
+		padding: 25px;
+		background-color: #8493A6;
+		color: #F1F3F5;
+		font-weight: 900;
+		font-size: 12px;
+	}
+	.ticket-info{
+		padding: 0 25px;
+		color: #8493A6;
+		&>div{
+			padding: 20px 0;
+			border-bottom: 1px solid #e3e3e3;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: flex-start;
+			&>div:first-of-type{
+				width: 120px;
+				margin-right: 20px;
+				font-size: 12px;
+				font-weight: 900;
+			}
+			&>div:last-of-type{
+				font-size: 14px;
+				line-height: 18px;
+				flex: 1;
+			}
+		}
+	}
+}

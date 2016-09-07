@@ -1,0 +1,12 @@
+<section class="tickets-list">
+	<article class="ticket" ng-repeat="ticket in ticketList | orderBy: '-updated_at' | filter: { status: selectedStatus}" ui-sref="home.ticket-details({id: ticket.id})">
+		<div class="status-tag" ng-class="{'open': ticket.status === 'open', 'pending': ticket.status === 'pending', 'closed': ticket.status === 'closed'}">{{ticket.status}}</div>
+		<div>
+			<div class="client" ng-bind="ticket.name"></div>
+			<div class="sub-desc"><span class="subject" ng-bind="ticket.subject"></span><span class="description" ng-bind="ticket.description"></span></div>
+		</div>
+		<div>
+			<span class="time-elapsed">{{ticket.timeAgo}}</span><span class="ticket-id" ng-bind="ticket.id"></span>
+		</div>
+	</article>
+</section>

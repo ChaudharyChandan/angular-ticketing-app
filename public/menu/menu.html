@@ -1,0 +1,8 @@
+<section class="side-menu">
+	<ul>
+		<li ng-click="setStatus()" ng-class="{'active': selectedStatus=== undefined}"><span>ALL</span><span></span></li>
+		<li ng-click="setStatus('open')" ng-class="{'active': selectedStatus=== 'open'}"><span>OPEN</span><span>{{ticketStatusCount.open}}</span></li>
+		<li ng-click="setStatus('pending')" ng-class="{'active': selectedStatus=== 'pending'}"><span>PENDING</span><span>{{ticketStatusCount.pending}}</span></li>
+		<li ng-click="setStatus('closed')" ng-class="{'active': selectedStatus=== 'closed'}"><span>CLOSED</span><span>{{ticketStatusCount.closed}}</span></li>
+	</ul>
+</section>

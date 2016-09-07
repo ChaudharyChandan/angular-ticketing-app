@@ -1,0 +1,21 @@
+body{
+	font-family: Helvetica, Arial, sans-serif;
+	color: #2B2B2B;
+	* {
+		box-sizing: border-box;
+	}
+	background-color: #ECF2F6;
+}
+
+.site-content{
+	display: flex;
+	height: calc(100vh - 70px);
+	&>div:first-of-type{
+		flex: 0 0 250px;
+	}
+	&>div:last-of-type{
+		flex: 1;
+		height: 100%;
+		overflow-y: auto;
+	}
+}

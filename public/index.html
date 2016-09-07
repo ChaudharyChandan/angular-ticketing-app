@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Ticketing System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <base href="/">
+    <link rel="stylesheet" href="/bower_components/reset-css/reset.css" />
+    <!--<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body ng-app="angular-ticketing-app">
+    <div ui-view></div>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!--<script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>-->
+    <script src="index.module.js"></script>
+    <script src="index.route.js"></script>
+    <script src="utils.js"></script>
+    <script src="tickets/tickets.service.js"></script>
+    <script src="tickets/tickets.controller.js"></script>
+    <script src="create/create-ticket.controller.js"></script>
+    <script src="details/ticket-details.service.js"></script>
+    <script src="details/ticket-details.controller.js"></script>
+    <script src="header/header.controller.js"></script>
+    <script src="menu/menu.controller.js"></script>
+    <script src="utils.js"></script>
+  </body>
+</html>

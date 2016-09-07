@@ -1,0 +1,25 @@
+{
+  "name": "angular-ticketing-system",
+  "description": "Customer Complaint Management",
+  "main": "server.js",
+  "authors": [
+    "Chandan Kumar"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "reset-css": "^2.0.2011012603",
+    "angular-ui-router": "ui-router#^0.3.1",
+    "angular-bootstrap": "^2.1.3",
+    "bootstrap": "^3.3.7"
+  }
+}

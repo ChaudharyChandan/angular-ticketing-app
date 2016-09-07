@@ -1,0 +1,43 @@
+<section class="ticket-details">
+	<header>
+		TICKET DESCRIPTION
+	</header>
+	<section class="ticket-info">
+		<div class="subject">
+			<div>SUBJECT</div>
+			<div ng-bind="ticket.subject"></div>
+		</div>
+		<div class="ticket-id">
+			<div>TICKET ID</div>
+			<div ng-bind="ticket.id"></div>
+		</div>
+		<div class="name">
+			<div>CLIENT</div>
+			<div ng-bind="ticket.name"></div>
+		</div>
+		<div class="email">
+			<div>EMAIL</div>
+			<div ng-bind="ticket.email"></div>
+		</div>
+		<div class="phone">
+			<div>PHONE</div>
+			<div ng-bind="ticket.phone"></div>
+		</div>
+		<div class="status">
+			<div>STATUS</div>
+			<div ng-bind="ticket.status"></div>
+		</div>
+		<div class="Description">
+			<div>DESCRIPTION</div>
+			<div ng-bind="ticket.description"></div>
+		</div>
+		<div class="assignee">
+			<div>ASSIGNEE</div>
+			<div ng-bind="ticket.assignee.name"></div>
+		</div>
+		<div class="date-created">
+			<div>DATE CREATED</div>
+			<div ng-bind="ticket.updated_at"></div>
+		</div>
+	</section>
+</section>

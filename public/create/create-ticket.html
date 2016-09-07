@@ -1,0 +1,53 @@
+<section class="new-ticket-section">
+	<form ng-submit="createTicket()">
+		<section class="customer-name">
+			<div>Name</div>
+			<div>
+				<input type="text" ng-model="user.name" ng-required="true"/>
+			</div>
+		</section>
+		<section class="customer-info">
+			<div>Email</div>
+			<div>
+				<input type="email" ng-model="user.email" ng-required="true"/>
+			</div>
+			<div>Phone</div>
+			<div>
+				<input type="number" ng-model="user.phone" ng-required="true"/>
+			</div>
+		</section>
+		<section class="ticket-type">
+			<div>Type</div>
+			<div>
+				<input type="radio" name="type" value="email" id="email" ng-model="ticket.type"/>
+				<label for="email">Email</label>
+				<input type="radio" name="type" value="phone" id="phone" ng-model="ticket.type"/>
+				<label for="phone">Phone</label>
+				<input type="radio" name="type" value="text" id="text-message" ng-model="ticket.type"/>
+				<label for="text-message">Text message</label>
+			</div>
+		</section>
+		<section class="ticket-subject">
+			<div>Subject</div>
+			<div>
+				<input type="text" ng-model="ticket.subject" ng-required="true"/>
+			</div>
+		</section>
+		<section class="ticket-description">
+			<div>Description</div>
+			<div>
+				<textarea ng-model="ticket.description" rows="5" ng-required="true"></textarea>
+			</div>
+		</section>
+		<section class="add-assignee">
+			<div>Assignee</div>
+			<div class="assignee_list">
+				<select ng-model="ticket.assignee" ng-options="assignee.name for assignee in assignees" ng-required="true"></select>
+			</div>
+		</section>
+		<section class="submit-btn">
+			<button type="submit">Open Ticket</button>
+			<button ui-sref="home">Cancel</button>
+		</section>
+	</form>
+</section>
