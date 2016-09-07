@@ -104,6 +104,22 @@
 			return deferred.promise;
 		}
 
+		function updateTicketDetails(data){
+			var deferred = $q.defer();
+			$http({
+				url: '/api/tickets/' + id,
+				method: 'PUT',
+				data: data
+			})
+			.success(function(data){
+				deferred.resolve(data);
+			})
+			.error(function(data){
+				deferred.reject(data);
+			})
+			return deferred.promise;			
+		}
+
 		return {
 			getAllTickets: getAllTickets,
 			getSelectedStatus: getSelectedStatus,
@@ -112,7 +128,8 @@
 			setStatus: setStatus,
 			registerStatusCallback: registerStatusCallback,
 			getTicketDetails: getTicketDetails,
-			changeTicketStatus: changeTicketStatus
+			changeTicketStatus: changeTicketStatus,
+			updateTicketDetails: updateTicketDetails
 		}
 	}
 })(angular);

@@ -8,10 +8,7 @@
         "type": "email",
         "subject": "Macbook Pro 13 charger issue",
         "description": "Macbook Pro 13 charger issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 6,
         "created_at": 1473086865028,
         "updated_at": 1473086865028
     },
@@ -24,10 +21,7 @@
         "type": "email",
         "subject": "One Plus 2 - fingerprint sensor issue",
         "description": "One Plus 2 - fingerprint sensor issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 3,
         "created_at": 1473087223315,
         "updated_at": 1473087223315
     },
@@ -40,10 +34,7 @@
         "type": "email",
         "subject": "One Plus 2 finger print sensor not working",
         "description": "One Plus 2 finger print sensor not working",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 1,
         "created_at": 1473087332950,
         "updated_at": 1473087332950
     },
@@ -56,10 +47,7 @@
         "type": "email",
         "subject": "Macbook Pro 13 charger issue",
         "description": "Macbook Pro 13 charger issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 2,
         "created_at": 1473086865028,
         "updated_at": 1473086865028
     },
@@ -72,10 +60,7 @@
         "type": "email",
         "subject": "One Plus 2 - fingerprint sensor issue",
         "description": "One Plus 2 - fingerprint sensor issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 1,
         "created_at": 1473087223315,
         "updated_at": 1473087223315
     },
@@ -88,10 +73,7 @@
         "type": "email",
         "subject": "One Plus 2 - fingerprint sensor issue",
         "description": "One Plus 2 - fingerprint sensor issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 3,
         "created_at": 1473087223315,
         "updated_at": 1473087223315
     },
@@ -104,10 +86,7 @@
         "type": "email",
         "subject": "Macbook Pro 13 charger issue",
         "description": "Macbook Pro 13 charger issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 4,
         "created_at": 1473086865028,
         "updated_at": 1473086865028
     },
@@ -120,10 +99,7 @@
         "type": "email",
         "subject": "One Plus 2 - fingerprint sensor issue",
         "description": "One Plus 2 - fingerprint sensor issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 5,
         "created_at": 1473087223315,
         "updated_at": 1473087223315
     },
@@ -136,10 +112,7 @@
         "type": "phone",
         "subject": "Dell XPS 15 - Speaker issue",
         "description": "Dell XPS 15 - Speaker issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 2,
         "created_at": 1473104946826,
         "updated_at": 1473104946826
     },
@@ -152,10 +125,7 @@
         "type": "text",
         "subject": "MI Earphone not working",
         "description": "MI Earphone not working",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 2,
         "created_at": 1473105566993,
         "updated_at": 1473105566993
     },
@@ -168,10 +138,7 @@
         "type": "phone",
         "subject": "JBL speaker issue",
         "description": "JBL speaker issue",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 4,
         "created_at": 1473106119422,
         "updated_at": 1473106119422
     },
@@ -184,10 +151,7 @@
         "type": "email",
         "subject": "Mind distubed",
         "description": "Mind distubed",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 6,
         "created_at": 1473109959375,
         "updated_at": 1473109959375
     },
@@ -200,10 +164,7 @@
         "type": "phone",
         "subject": "Mailbox not opening",
         "description": "Mailbox not opening",
-        "assignee": {
-            "id": 6,
-            "name": "Harlan Tomer"
-        },
+        "assigneeId": 3,
         "created_at": 1473227785945,
         "updated_at": 1473227785945
     },
@@ -216,10 +177,7 @@
         "type": "email",
         "subject": "iPhone speaker issue",
         "description": "iPhone speaker issue",
-        "assignee": {
-            "id": 2,
-	        "name": "Sandy Bonnie"
-        },
+        "assigneeId": 2,
         "created_at": 1473227983709,
         "updated_at": 1473227983709
     },
@@ -232,11 +190,34 @@
         "type": "email",
         "subject": "AC not working",
         "description": "AC not working",
-        "assignee": {
-            "id": 4,
-            "name": "Adolfo Morillo"
-        },
+        "assigneeId": 6,
         "created_at": 1473228148245,
         "updated_at": 1473228148245
+    },
+    {
+        "id": "CHT1473278331665",
+        "name": "Wayne",
+        "email": "wayne@gmail.com",
+        "phone": 9872873831,
+        "status": "open",
+        "type": "email",
+        "subject": "Xfinity TV not working",
+        "description": "Xfinity TV not working",
+        "assigneeId": 2,
+        "created_at": 1473278331665,
+        "updated_at": 1473278331665
+    },
+    {
+        "id": "CHT1473278441383",
+        "name": "Wayne Stetson",
+        "email": "wayne@comcast.com",
+        "phone": 9879879870,
+        "status": "open",
+        "type": "phone",
+        "subject": "Xfinity setup box problem",
+        "description": "Xfinity setup box problem",
+        "assigneeId": 6,
+        "created_at": 1473278441383,
+        "updated_at": 1473278441383
     }
 ]

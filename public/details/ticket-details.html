@@ -1,11 +1,17 @@
 <section class="ticket-details">
 	<header>
-		TICKET DESCRIPTION
+		<div>TICKET DESCRIPTION</div>
+		<button ng-click="enableEditMode()" ng-show="!editMode">EDIT</button>
+		<div class="edit-state-btns" ng-show="editMode">
+			<button ng-click="updateTicketDetails()">UPDATE</button>
+			<button ng-click="disableEditMode()" >CANCEL</button>
+		</div>
 	</header>
 	<section class="ticket-info">
 		<div class="subject">
 			<div>SUBJECT</div>
-			<div ng-bind="ticket.subject"></div>
+			<div ng-bind="ticket.subject" ng-show="!editMode"></div>
+			<input type="text" ng-model="editTicket.subject" ng-show="editMode"/>
 		</div>
 		<div class="ticket-id">
 			<div>TICKET ID</div>
@@ -25,19 +31,22 @@
 		</div>
 		<div class="status">
 			<div>STATUS</div>
-			<div ng-bind="ticket.status"></div>
+			<div ng-bind="ticket.status" ng-show="!editMode"></div>
+			<select ng-model="editTicket.status" ng-options="status as status for status in ['open','pending','closed']" ng-show="editMode"></select>
 		</div>
 		<div class="Description">
 			<div>DESCRIPTION</div>
-			<div ng-bind="ticket.description"></div>
+			<div ng-bind="ticket.description" ng-show="!editMode"></div>
+			<textarea ng-model="editTicket.description" rows="3" ng-show="editMode"></textarea>
 		</div>
 		<div class="assignee">
 			<div>ASSIGNEE</div>
-			<div ng-bind="ticket.assignee.name"></div>
+			<div ng-bind="getAssigneeName(ticket.assigneeId)" ng-show="!editMode"></div>
+			<select ng-model="editTicket.assigneeId" ng-options="assignee.id as assignee.name for assignee in assignees" ng-show="editMode"></select>
 		</div>
 		<div class="date-created">
 			<div>DATE CREATED</div>
-			<div ng-bind="ticket.updated_at"></div>
+			<div ng-bind="getLocaleString(ticket.created_at)"></div>
 		</div>
 	</section>
 </section>

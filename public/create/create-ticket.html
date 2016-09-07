@@ -42,7 +42,7 @@
 		<section class="add-assignee">
 			<div>Assignee</div>
 			<div class="assignee_list">
-				<select ng-model="ticket.assignee" ng-options="assignee.name for assignee in assignees" ng-required="true"></select>
+				<select ng-model="ticket.assigneeId" ng-options="assignee.id as assignee.name for assignee in assignees" ng-required="true"></select>
 			</div>
 		</section>
 		<section class="submit-btn">

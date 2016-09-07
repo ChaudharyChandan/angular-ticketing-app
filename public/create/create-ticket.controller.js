@@ -13,7 +13,7 @@
 			subject: "",
 			description: "",
 			status: "open",
-			assignee: null
+			assigneeId: null
 		}
 
 		$scope.user = {
@@ -27,14 +27,12 @@
 			$scope.assignees = data;
 		}, function(){
 			$log.log('Failed to get assignees list');
-		})
+		});
 
 		$scope.createTicket = function(){
 			TicketsService.createTicket($scope.user, $scope.ticket)
 			.then(function(data){
-				$state.go('home.ticket-details',{
-					id: data.id
-				});
+				$state.go('home.ticket-details', {id: data.id}, {reload: true});
 			}, function(data){
 				$log.log(data);	
 			})
