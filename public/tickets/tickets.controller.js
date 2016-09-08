@@ -12,10 +12,23 @@
 		TicketsService.registerStatusCallback(function(status){
 			$scope.selectedStatus = status;
 		});
+	
+		TicketsService.registerTicketListCallback(function(ticket){
+			var ticketsLen = ticketList.length;
+			for(var i=0;i<ticketsLen;i++){
+				if(ticketList[i].id == ticket.id){
+					ticketList[i] = ticket;
+					break;
+				}
+			}
+			if(i===ticketsLen){
+				ticketList.push(ticket);
+			}
+		});
 
 		$interval(function(){
 			angular.forEach($scope.ticketList, function(ticket){
-				ticket.timeAgo = (new Date()).getAgo(new Date(ticket.updated_at).toISOString());
+				ticket.timeAgo = (new Date()).getAgo(ticket.updated_at);
 			})
 		}, 1000);
 		

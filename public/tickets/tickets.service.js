@@ -7,22 +7,7 @@
 
 	function TicketsService($http, $q){
 		
-		var statusCallback, selectedStatus;
-
-		function setStatus(status){
-			selectedStatus = status;
-			if(statusCallback){
-				statusCallback(status);
-			}
-		}
-
-		function getSelectedStatus(){
-			return selectedStatus;
-		}
-
-		var registerStatusCallback = function(callback){
-			statusCallback = callback;
-		};
+		var statusCallback, selectedStatus, ticketCallback = [];
 
 		function getAllTickets(){
 			var deferred = $q.defer();
@@ -88,27 +73,11 @@
 			return deferred.promise;
 		}
 
-		function changeTicketStatus(id, status){
-			var deferred = $q.defer();
-			$http({
-				url: '/api/tickets/' + id + '/status',
-				method: 'PUT',
-				data: status
-			})
-			.success(function(data){
-				deferred.resolve(data);
-			})
-			.error(function(data){
-				deferred.reject(data);
-			})
-			return deferred.promise;
-		}
-
-		function updateTicketDetails(data){
+		function updateTicketDetails(id, data){
 			var deferred = $q.defer();
 			$http({
 				url: '/api/tickets/' + id,
-				method: 'PUT',
+				method: 'PATCH',
 				data: data
 			})
 			.success(function(data){
@@ -119,6 +88,45 @@
 			})
 			return deferred.promise;			
 		}
+	
+		function setStatus(status){
+			selectedStatus = status;
+			if(statusCallback){
+				statusCallback(status);
+			}
+		}
+
+		function updateTicketList(ticket){
+			angular.forEach(ticketCallback,function(callback){
+				callback(ticket);
+			})
+		}
+
+		var registerTicketListCallback = function(callback){
+			ticketCallback.push(callback);
+		}
+
+		function getSelectedStatus(){
+			return selectedStatus;
+		}
+
+		var registerStatusCallback = function(callback){
+			statusCallback = callback;
+		};
+
+		function checkAndUpdateList(ticketList, ticket){
+			var ticketsLen = ticketList.length;
+			for(var i=0;i<ticketsLen;i++){
+				if(ticketList[i].id == ticket.id){
+					ticketList[i] = ticket;
+					break;
+				}
+			}
+			if(i===ticketsLen){
+				ticketList.push(ticket);
+			}
+			return ticketList;
+		}
 
 		return {
 			getAllTickets: getAllTickets,
@@ -128,8 +136,10 @@
 			setStatus: setStatus,
 			registerStatusCallback: registerStatusCallback,
 			getTicketDetails: getTicketDetails,
-			changeTicketStatus: changeTicketStatus,
-			updateTicketDetails: updateTicketDetails
+			updateTicketDetails: updateTicketDetails,
+			registerTicketListCallback: registerTicketListCallback,
+			updateTicketList: updateTicketList,
+			checkAndUpdateList: checkAndUpdateList
 		}
 	}
 })(angular);

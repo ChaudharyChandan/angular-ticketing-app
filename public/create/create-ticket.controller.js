@@ -13,7 +13,7 @@
 			subject: "",
 			description: "",
 			status: "open",
-			assigneeId: null
+			assignee_id: null
 		}
 
 		$scope.user = {
@@ -32,7 +32,8 @@
 		$scope.createTicket = function(){
 			TicketsService.createTicket($scope.user, $scope.ticket)
 			.then(function(data){
-				$state.go('home.ticket-details', {id: data.id}, {reload: true});
+				$state.go('home.ticket-details', {id: data.id});
+				TicketsService.updateTicketList(data);
 			}, function(data){
 				$log.log(data);	
 			})

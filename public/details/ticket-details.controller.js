@@ -14,6 +14,7 @@
 		TicketsService.getTicketDetails($stateParams.id)
 		.then(function(data){
 			$scope.ticket = data;
+			$scope.updatedAt = (new Date(data.updated_at)).toLocaleString();
 		}, function(){
 			$log.log('Unable to get ticket details');
 		});
@@ -25,36 +26,29 @@
 			$log.log('Failed to get assignees list');
 		});
 
-		$scope.changeStatus = function(status){
-			if($scope.status !== status){
-				TicketsService.changeTicketStatus(id, status)
-				.then(function(){
-					$log.log('Successfully updated the status');
-				}, function(){
-					$log.log('Unable to update the status');
-				});
-			}
-		}
-
 		$scope.enableEditMode = function(){
 			$scope.editMode = true;
 			$scope.editTicket = {
 				subject: $scope.ticket.subject,
 				status: $scope.ticket.status,
 				description: $scope.ticket.description,
-				assigneeId: $scope.ticket.assigneeId
+				assignee_id: $scope.ticket.assignee_id
 			};
 			editTicketCopy = angular.copy($scope.editTicket);
 		}
 
 		$scope.updateTicketDetails = function(){
 			if(!angular.equals(editTicketCopy, $scope.editTicket)){
-				TicketsService.updateTicketDetails($scope.editTicket)
+				TicketsService.updateTicketDetails(id, $scope.editTicket)
+				.then(function(data){
+					$scope.disableEditMode();
+					$scope.ticket = data;
+					$scope.updatedAt = (new Date(data.updated_at)).toLocaleString();
+					TicketsService.updateTicketList(data);
+				}, function(data){
+					$log.log(data);
+				})
 			}
-		}
-
-		$scope.getLocaleString = function(date){
-			return (new Date(date)).toLocaleString();
 		}
 	
 		$scope.disableEditMode = function(){
@@ -71,12 +65,5 @@
 				return "";
 			}
 		}
-
-		TicketsService.getAssigneeList()
-		.then(function(data){
-			$scope.assignees = data;
-		}, function(){
-			$log.log('Failed to get assignees list');
-		});
 	}
 })(angular);
