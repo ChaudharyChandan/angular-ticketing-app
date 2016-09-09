@@ -23,8 +23,13 @@ router.get('/:id', function(req, res){
 			res.status(404);
 			res.json({message: "Record not found"});
 		} else{
-			res.status(200);
-			res.json(ticket[0]);
+			if(ticket.length === 0){
+				res.status(404);
+				res.json({message: "Record not found"});
+			} else{
+				res.status(200);
+				res.json(ticket[0]);
+			}
 		}
 	});
 });

@@ -5,7 +5,7 @@
 	angular.module('angular-ticketing-app')
 	.controller('TicketDetailsController', TicketDetailsController);
 
-	function TicketDetailsController($scope, $log, $stateParams, tagList, TicketService, AssigneeService){
+	function TicketDetailsController($scope, $log, $stateParams, $state, toastr, tagList, TicketService, AssigneeService){
 		var id = $stateParams.id;
 		$scope.editMode = false;
 		$scope.assignees = [];
@@ -17,7 +17,8 @@
 			$scope.ticket = data;
 			$scope.updatedAt = (new Date(data.updated_at)).toLocaleString();
 		}, function(){
-			$log.log('Unable to get ticket details');
+			toastr.error('No such ticket available','Error');
+			$state.go('home');
 		});
 
 		AssigneeService.getAssigneeList()
@@ -47,9 +48,10 @@
 					$scope.ticket = data;
 					$scope.updatedAt = (new Date(data.updated_at)).toLocaleString();
 					TicketService.updateTicketList(data);
-				}, function(data){
-					$log.log(data);
-				})
+					toastr.success('Ticket updated succcessfully', 'Ticket Update');
+				}, function(){
+					toastr.error('Ticket update failed', 'Ticket Update');
+				});
 			}
 		}
 	

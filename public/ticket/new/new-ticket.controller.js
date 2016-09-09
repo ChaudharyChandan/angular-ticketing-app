@@ -5,7 +5,7 @@
 	angular.module('angular-ticketing-app')
 	.controller('NewTicketController', NewTicketController);
 
-	function NewTicketController($scope, $log, $state, TicketService, tagList, TagService, AssigneeService){
+	function NewTicketController($scope, $log, $state, toastr, TicketService, tagList, TagService, AssigneeService){
 
 		$scope.assignees = [];
 		$scope.tags = tagList;
@@ -34,11 +34,12 @@
 		$scope.createTicket = function(){
 			TicketService.createTicket($scope.user, $scope.ticket)
 			.then(function(data){
-				$state.go('home.ticket-details', {id: data.id});
 				TicketService.updateTicketList(data);
-			}, function(data){
-				$log.log(data);	
-			})
+				$state.go('home.ticket-details', {id: data.id});
+				toastr.success('Ticket created cucccessfully', 'Ticket Creation');
+			}, function(){
+				toastr.error('Ticket creation failed', 'Ticket Creation');
+			});
 		}
 	}
 })(angular);

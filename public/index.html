@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <base href="/">
     <link rel="stylesheet" href="/bower_components/reset-css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/bower_components/angular-toastr/dist/angular-toastr.min.css" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body ng-app="angular-ticketing-app">
     <div ui-view></div>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="index.module.js"></script>
     <script src="index.route.js"></script>
+    <script src="index.config.js"></script>
     <script src="tag/tag.directive.js"></script>
     <script src="utils.js"></script>
     <script src="ticket/ticket.service.js"></script>
