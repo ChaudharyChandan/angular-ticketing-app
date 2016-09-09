@@ -22,39 +22,6 @@ body * {
   height: 100%;
   overflow-y: auto;
 }
-.side-menu {
-  height: 100%;
-  background-color: #344050;
-}
-
-.side-menu ul {
-  display: flex;
-  flex-flow: column nowrap;
-  color: #9BA7B8;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
-}
-
-.side-menu ul li {
-  width: 180px;
-  text-align: left;
-  padding: 10px;
-  margin: 10px 0;
-  font-size: 12px;
-  cursor: pointer;
-  font-weight: 900;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 2px;
-}
-
-.side-menu ul li.active,
-.side-menu ul li:hover {
-  color: #DFDFE1;
-  background-color: #000;
-}
 .site-header {
   height: 70px;
   background: #FFFFFF;
@@ -170,6 +137,39 @@ body * {
   opacity: .5;
   pointer-events: all;
 }
+.side-menu {
+  height: 100%;
+  background-color: #344050;
+}
+
+.side-menu ul {
+  display: flex;
+  flex-flow: column nowrap;
+  color: #9BA7B8;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.side-menu ul li {
+  width: 180px;
+  text-align: left;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.side-menu ul li.active,
+.side-menu ul li:hover {
+  color: #DFDFE1;
+  background-color: #000;
+}
 .ticket-details {
   margin: 30px 50px;
   width: 500px;
@@ -257,159 +257,6 @@ body * {
   border: 0;
   border: 1px solid #d3d3d3;
   padding: 5px;
-}
-.new-ticket-section {
-  display: flex;
-  padding: 50px 0 20px 50px;
-}
-
-.new-ticket-section > form {
-  width: auto;
-}
-
-.new-ticket-section > form input {
-  font-size: 15px;
-  outline: 0;
-  border: 0;
-  border-radius: 4px;
-  text-indent: 10px;
-  border: 1px solid #e3e3e3;
-}
-
-.new-ticket-section > form > section {
-  display: flex;
-  margin-bottom: 30px;
-}
-
-.new-ticket-section > form > section > div:first-of-type {
-  width: 100px;
-  text-align: right;
-  margin-right: 20px;
-  line-height: 30px;
-}
-
-.new-ticket-section > form .customer-name > div {
-  line-height: 30px;
-}
-
-.new-ticket-section > form .customer-name > div input {
-  width: 300px;
-  height: 30px;
-}
-
-.new-ticket-section > form .customer-info input {
-  width: 300px;
-  height: 30px;
-}
-
-.new-ticket-section > form .customer-info > div {
-  margin-right: 20px;
-  line-height: 30px;
-}
-
-.new-ticket-section > form .customer-info > div:nth-of-type(3) {
-  width: 50px;
-}
-
-.new-ticket-section > form .customer-info > div:last-of-type {
-  margin-right: 0;
-}
-
-.new-ticket-section > form .ticket-type > div:last-of-type {
-  display: flex;
-  align-items: center;
-}
-
-.new-ticket-section > form .ticket-type > div:last-of-type label {
-  margin-right: 20px;
-  font-weight: 200px;
-}
-
-.new-ticket-section > form .ticket-type > div:last-of-type input {
-  margin-right: 10px;
-}
-
-.new-ticket-section > form .ticket-subject input {
-  width: 694px;
-  height: 30px;
-}
-
-.new-ticket-section > form .ticket-description textarea {
-  padding: 5px 10px;
-  width: 694px;
-  outline: 0;
-  border: 0;
-  border-radius: 4px;
-  border: 1px solid #e3e3e3;
-  font-size: 16px;
-}
-
-.new-ticket-section > form .add-assignee {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.new-ticket-section > form .add-assignee > article {
-  display: flex;
-}
-
-.new-ticket-section > form .add-assignee > article > div:first-of-type {
-  width: 100px;
-  text-align: right;
-  margin-right: 20px;
-  line-height: 30px;
-}
-
-.new-ticket-section > form .add-assignee .assignee_list select option {
-  font-size: 20px;
-}
-
-.new-ticket-section > form .submit-btn {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 120px;
-}
-
-.new-ticket-section > form .submit-btn button {
-  padding: 10px 15px;
-  border: 0;
-  outline: 0;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.new-ticket-section > form .submit-btn button:first-of-type {
-  background-color: #5f9ea0;
-}
-
-.new-ticket-section > form .submit-btn button:first-of-type:hover {
-  background-color: #5EC7D2;
-}
-
-.new-ticket-section > form .submit-btn button:last-of-type {
-  background-color: #d25e5e;
-}
-
-.new-ticket-section > form .submit-btn button:last-of-type:hover {
-  background-color: #98291e;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  select {
-    height: 30px;
-    line-height: 30px;
-    background-color: #fff;
-    width: 150px;
-    outline: 0;
-  }
-}
-
-select::-moz-focus-inner {
-  border: 0;
-  padding: 0;
 }
 .tickets-list {
   width: 800px;
@@ -536,4 +383,165 @@ select::-moz-focus-inner {
   background-color: transparent;
   color: #333;
   margin-top: 50px;
+}
+.new-ticket-section {
+  display: flex;
+  padding: 50px 0 20px 50px;
+}
+
+.new-ticket-section > form {
+  width: auto;
+}
+
+.new-ticket-section > form input {
+  font-size: 15px;
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  text-indent: 10px;
+  border: 1px solid #e3e3e3;
+}
+
+.new-ticket-section > form > section {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.new-ticket-section > form > section > div:first-of-type {
+  width: 100px;
+  text-align: right;
+  margin-right: 20px;
+  line-height: 30px;
+}
+
+.new-ticket-section > form .customer-name > div {
+  line-height: 30px;
+}
+
+.new-ticket-section > form .customer-name > div input {
+  width: 300px;
+  height: 30px;
+}
+
+.new-ticket-section > form .customer-info input {
+  width: 300px;
+  height: 30px;
+}
+
+.new-ticket-section > form .customer-info > div {
+  margin-right: 20px;
+  line-height: 30px;
+}
+
+.new-ticket-section > form .customer-info > div:nth-of-type(3) {
+  width: 50px;
+}
+
+.new-ticket-section > form .customer-info > div:last-of-type {
+  margin-right: 0;
+}
+
+.new-ticket-section > form .ticket-type > div:nth-of-type(2),
+.new-ticket-section > form .ticket-type > div:nth-of-type(3) {
+  display: flex;
+  align-items: center;
+}
+
+.new-ticket-section > form .ticket-type > div:nth-of-type(2) label,
+.new-ticket-section > form .ticket-type > div:nth-of-type(3) label {
+  margin-right: 20px;
+  font-weight: 200px;
+}
+
+.new-ticket-section > form .ticket-type > div:nth-of-type(2) input,
+.new-ticket-section > form .ticket-type > div:nth-of-type(3) input {
+  margin-right: 10px;
+}
+
+.new-ticket-section > form .ticket-type .message-block {
+  margin-left: 90px;
+  color: #ff7f50;
+}
+
+.new-ticket-section > form .ticket-subject input {
+  width: 694px;
+  height: 30px;
+}
+
+.new-ticket-section > form .ticket-description textarea {
+  padding: 5px 10px;
+  width: 694px;
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  border: 1px solid #e3e3e3;
+  font-size: 16px;
+}
+
+.new-ticket-section > form .add-assignee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-ticket-section > form .add-assignee > article {
+  display: flex;
+}
+
+.new-ticket-section > form .add-assignee > article > div:first-of-type {
+  width: 100px;
+  text-align: right;
+  margin-right: 20px;
+  line-height: 30px;
+}
+
+.new-ticket-section > form .add-assignee .assignee_list select option {
+  font-size: 20px;
+}
+
+.new-ticket-section > form .submit-btn {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 120px;
+}
+
+.new-ticket-section > form .submit-btn button {
+  padding: 10px 15px;
+  border: 0;
+  outline: 0;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.new-ticket-section > form .submit-btn button:first-of-type {
+  background-color: #5f9ea0;
+}
+
+.new-ticket-section > form .submit-btn button:first-of-type:hover {
+  background-color: #5EC7D2;
+}
+
+.new-ticket-section > form .submit-btn button:last-of-type {
+  background-color: #d25e5e;
+}
+
+.new-ticket-section > form .submit-btn button:last-of-type:hover {
+  background-color: #98291e;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select {
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    width: 150px;
+    outline: 0;
+  }
+}
+
+select::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }

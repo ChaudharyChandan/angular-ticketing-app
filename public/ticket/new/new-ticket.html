@@ -1,5 +1,5 @@
 <section class="new-ticket-section">
-	<form ng-submit="createTicket()">
+	<form ng-submit="createTicket()" name="ticketform">
 		<section class="customer-name">
 			<div>Name</div>
 			<div>
@@ -13,7 +13,7 @@
 			</div>
 			<div>Phone</div>
 			<div>
-				<input type="number" ng-model="user.phone" ng-required="true"/>
+				<input type="number" ng-model="user.phone" name="phone" ng-minlength="10" ng-maxlength="10" ng-required="true"/>
 			</div>
 		</section>
 		<section class="ticket-type">
@@ -25,6 +25,10 @@
 				<label for="phone">Phone</label>
 				<input type="radio" name="type" value="text" id="text-message" ng-model="ticket.type"/>
 				<label for="text-message">Text message</label>
+			</div>
+			<div class="message-block">
+				<span class="help-block" ng-show="(ticketform.phone.$error.required || ticketform.phone.$error.number) && ticketform.phone.$touched">Valid phone number is required</span>
+				<span class="help-block" ng-show="((ticketform.phone.$error.minlength || ticketform.phone.$error.maxlength) && ticketform.phone.$dirty)">Phone number should be 10 digits</span>
 			</div>
 		</section>
 		<section class="ticket-subject">

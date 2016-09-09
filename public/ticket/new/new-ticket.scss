@@ -47,7 +47,7 @@
 			}
 		}
 		.ticket-type{
-			&>div:last-of-type{
+			&>div:nth-of-type(2),&>div:nth-of-type(3){
 				display: flex;
 				align-items: center;
 				label{
@@ -57,6 +57,10 @@
 				input{
 					margin-right: 10px;
 				}
+			}
+			.message-block{
+				margin-left: 90px;
+				color: #ff7f50;
 			}
 		}
 		.ticket-subject{
