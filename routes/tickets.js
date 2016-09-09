@@ -41,6 +41,7 @@ router.post('/', function(req, res) {
 		type: ticket.type,
 		subject: ticket.subject,
 		description: ticket.subject,
+		tag_id: ticket.tag_id,
 		assignee_id: ticket.assignee_id
 	});
 

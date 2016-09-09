@@ -19,8 +19,8 @@ module.exports = function(config) {
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './public/index.module.js',
-      './public/tickets/tickets.service.js',
-      './public/tickets/tickets.spec.js'
+      './public/ticket/ticket.service.js',
+      './public/ticket/ticket.spec.js'
     ],
 
 

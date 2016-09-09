@@ -2,7 +2,7 @@
 	'use strict';
 	describe('Ticket factory', function() {
 
-		var TicketsService, $q, $httpBackend;
+		var TicketService, $q, $httpBackend;
 		var API = "/api/tickets";
 		var RESPONSE_SUCCESS = [{
 			id: 100,
@@ -20,37 +20,37 @@
 
 		beforeEach(angular.mock.module('angular-ticketing-app'));
 
-		beforeEach(inject(function(_TicketsService_, _$q_, _$httpBackend_) {
-			TicketsService = _TicketsService_;
+		beforeEach(inject(function(_TicketService_, _$q_, _$httpBackend_) {
+			TicketService = _TicketService_;
 			$q = _$q_;
 			$httpBackend = _$httpBackend_;
 		}));
 
 		it('Should exist', function() {
-			expect(TicketsService).toBeDefined();
+			expect(TicketService).toBeDefined();
 		});
 
 		describe('getAllTickets()', function(){
 			var result;
 			beforeEach(function(){
 				result = null;
-				spyOn(TicketsService, "getAllTickets").and.callThrough();
+				spyOn(TicketService, "getAllTickets").and.callThrough();
 			});
 
 			it('should get all tickets', function(){
 				$httpBackend.whenGET(API).respond(200, $q.when(RESPONSE_SUCCESS));
 
-				expect(TicketsService.getAllTickets).not.toHaveBeenCalled();
+				expect(TicketService.getAllTickets).not.toHaveBeenCalled();
 				expect(result).toEqual(null);
 
-				TicketsService.getAllTickets()
+				TicketService.getAllTickets()
 				.then(function(data){
 					result = data;
 				});
 
 				$httpBackend.flush();
 
-				expect(TicketsService.getAllTickets).toHaveBeenCalled();
+				expect(TicketService.getAllTickets).toHaveBeenCalled();
 				expect(result).toBeDefined();
 				expect(result).toEqual(jasmine.any(Array));
 			});
@@ -61,24 +61,24 @@
 
 			beforeEach(function(){
 				result = null;
-				spyOn(TicketsService, "getTicketDetails").and.callThrough();
+				spyOn(TicketService, "getTicketDetails").and.callThrough();
 			});
 
 			it('should get a particular ticket details', function(){
 				var id = 100;
 
 				$httpBackend.whenGET(API + '/' + id).respond(200, $q.when(RESPONSE_SUCCESS[0]));
-				expect(TicketsService.getTicketDetails).not.toHaveBeenCalled();
+				expect(TicketService.getTicketDetails).not.toHaveBeenCalled();
 				expect(result).toEqual(null);
 
-				TicketsService.getTicketDetails(id)
+				TicketService.getTicketDetails(id)
 				.then(function(data){
 					result = data;
 				});
 
 				$httpBackend.flush();
 
-				expect(TicketsService.getTicketDetails).toHaveBeenCalled();
+				expect(TicketService.getTicketDetails).toHaveBeenCalled();
 				expect(result).toBeDefined();
 				expect(result).toEqual(jasmine.any(Object));
 				expect(result.id).toEqual(100);

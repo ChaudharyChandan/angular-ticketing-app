@@ -40,10 +40,18 @@
 			</div>
 		</section>
 		<section class="add-assignee">
-			<div>Assignee</div>
-			<div class="assignee_list">
-				<select ng-model="ticket.assignee_id" ng-options="assignee.id as assignee.name for assignee in assignees" ng-required="true"></select>
-			</div>
+			<article>
+				<div>Assignee</div>
+				<div class="assignee_list">
+					<select ng-model="ticket.assignee_id" ng-options="assignee.id as assignee.name for assignee in assignees" ng-required="true"></select>
+				</div>
+			</article>
+			<article>
+				<div>Priority</div>
+				<div class="assignee_list">
+					<select ng-model="ticket.tag_id" ng-options="tag.id as tag.name for tag in tags" ng-required="true"></select>
+				</div>
+			</article>
 		</section>
 		<section class="submit-btn">
 			<button type="submit">Open Ticket</button>

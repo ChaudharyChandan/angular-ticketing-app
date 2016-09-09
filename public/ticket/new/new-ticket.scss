@@ -77,6 +77,18 @@
 			}
 		}
 		.add-assignee{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			&>article{
+				display: flex;
+				&>div:first-of-type{
+					width: 100px;
+					text-align: right;
+					margin-right: 20px;
+					line-height: 30px;
+				}
+			}
 			.assignee_list{
 				select option{
 					font-size: 20px;
@@ -124,9 +136,4 @@
 select::-moz-focus-inner { 
     border: 0;
     padding: 0;
-}
-@-moz-document url-prefix() {
-    select {
-        padding: 15px 0!important;
-    }
 }

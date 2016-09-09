@@ -1,9 +1,18 @@
 <header class="site-header">
 	<div>
-		<a href="/">Home</a>
+		<a href="/" ng-click="goToHomeState()">Home</a>
 	</div>
 	<section class="ticket-search-create">
-		<input type="text" placeholder="Search using tags"/>
+		<section class="search-box">
+			<input type="text" placeholder="Search using tags, e.g. minor, major, critical, blocker etc .." ng-model="searchedTag.name" ng-click="openTagSuggestion($event)"/>
+			<button ng-click="resetTagSelection()" ng-disabled="!searchedTag">Reset</button>
+		</section>
 		<button type="button" ui-sref="home.create-ticket">Create Ticket</button>
+		<section class="tag-dropdown">
+			<a ng-repeat="tag in tags" href="javascript:void(0)" ng-click="selectTag(tag)">
+			{{tag.name}}
+			</a>
+		</section>
 	</section>
 </header>
+<section class="black-overlay" ng-class="{'active': overlay}" ng-click="closeOverlay()"></section>

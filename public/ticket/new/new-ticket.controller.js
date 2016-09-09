@@ -3,17 +3,19 @@
 	'use strict';
 
 	angular.module('angular-ticketing-app')
-	.controller('CreateTicketController', CreateTicketController);
+	.controller('NewTicketController', NewTicketController);
 
-	function CreateTicketController($scope, $log, $state, TicketsService){
+	function NewTicketController($scope, $log, $state, TicketService, tagList, TagService, AssigneeService){
 
 		$scope.assignees = [];
+		$scope.tags = tagList;
 		$scope.ticket = {
 			type: "email",
 			subject: "",
 			description: "",
 			status: "open",
-			assignee_id: null
+			assignee_id: null,
+			tag_id: null
 		}
 
 		$scope.user = {
@@ -22,7 +24,7 @@
 			phone: ""
 		}
 
-		TicketsService.getAssigneeList()
+		AssigneeService.getAssigneeList()
 		.then(function(data){
 			$scope.assignees = data;
 		}, function(){
@@ -30,10 +32,10 @@
 		});
 
 		$scope.createTicket = function(){
-			TicketsService.createTicket($scope.user, $scope.ticket)
+			TicketService.createTicket($scope.user, $scope.ticket)
 			.then(function(data){
 				$state.go('home.ticket-details', {id: data.id});
-				TicketsService.updateTicketList(data);
+				TicketService.updateTicketList(data);
 			}, function(data){
 				$log.log(data);	
 			})

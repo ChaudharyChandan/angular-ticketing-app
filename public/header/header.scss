@@ -21,21 +21,38 @@
 		}
 	}
 	.ticket-search-create{
-		flex: 1;
+		flex: 0 0 auto;
 		height: 100%;
+		width: 800px;
+		margin: 0 auto;
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		align-items: center;
-		border-bottom: 2px solid #F2F3F4;
-		&>input{
-			width: 400px;
-			height: 100%;
-			outline: none;
-			height: 40px;
-			padding-left: 50px;
-			font-size: 16px;
-			border: 0;
+		position: relative;
+		.search-box{
+			&>input{
+				width: 500px;
+				height: 100%;
+				outline: none;
+				height: 40px;
+				font-size: 16px;
+				border: 0;
+			}
+			&>button{
+				background-color: #55D169;;
+				color: #fff;
+				font-size: 14px;
+				padding: 8px 10px;
+				border: 0;
+				outline: none;
+				cursor: pointer;
+				border-radius: 2px;
+				&:disabled{
+					background-color: #98e9a5;
+					cursor: default;
+				}
+			}
 		}
 		&>button{
 			background-color: #000;
@@ -43,10 +60,50 @@
 			font-size: 14px;
 			padding: 10px;
 			border: 0;
-			margin-right: 50px;
 			outline: none;
 			cursor: pointer;
 			border-radius: 2px;
 		}
+		.tag-dropdown{
+			width: 100px;
+			height: auto;
+			position: absolute;
+			top: 70px;
+			left: 0px;
+			background-color: #FBFBFB;
+			z-index: 11;
+			&>a{
+				color: #3d3d3d;
+				background-color: #F5F5F5;
+				width: 200px;
+				border: 1px solid #e3e3e3;
+				height: 48px;
+				line-height: 48px;
+				font-size: 15px;
+				padding-left: 25px;
+				cursor: pointer;
+				letter-spacing: .25px;
+				display: inline-block;
+				outline: 0;
+				text-decoration: none;
+				&:hover{
+					background-color: #fbfbfb;
+				}
+			}
+		}
+	}
+}
+
+.black-overlay{
+	&.active{
+		z-index: 10;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: #000;
+		opacity: .5;
+		pointer-events: all;
 	}
 }

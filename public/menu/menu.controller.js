@@ -5,8 +5,9 @@
 	angular.module('angular-ticketing-app')
 	.controller('MenuController', MenuController);
 
-	function MenuController($scope, $state, ticketList, TicketsService){
-		$scope.selectedStatus = undefined;
+	function MenuController($scope, $state, ticketList, TagService, TicketService){
+		$scope.selectedStatus;
+		var selectedTag;
 		intializeTicketCount();
 
 		function intializeTicketCount(){
@@ -16,18 +17,33 @@
 				closed: 0
 			};
 			ticketList.map(function(ticket){
-				$scope.ticketStatusCount[ticket.status] += 1; 
+				if(selectedTag){
+					if(ticket.tag_id === selectedTag){
+						$scope.ticketStatusCount[ticket.status] += 1;
+					}
+				} else{
+					$scope.ticketStatusCount[ticket.status] += 1;
+				}
 			});
 		}
 
 		$scope.setStatus = function(status){
-			TicketsService.setStatus(status);
+			TicketService.setStatus(status);
 			$scope.selectedStatus = status;
 			$state.go('home');
 		}
 
-		TicketsService.registerTicketListCallback(function(ticket){
-			ticketList = TicketsService.checkAndUpdateList(ticketList, ticket);
+		TicketService.registerResetMenuBar(function(){
+			$scope.selectedStatus = undefined;
+		});
+
+		TicketService.registerTicketListCallback(function(ticket){
+			ticketList = TicketService.checkAndUpdateList(ticketList, ticket);
+			intializeTicketCount();
+		});
+
+		TagService.registerTagCallback(function(id){
+			selectedTag = id;
 			intializeTicketCount();
 		});
 	}

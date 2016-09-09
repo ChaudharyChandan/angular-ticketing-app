@@ -3,11 +3,11 @@
 	'use strict';
 
 	angular.module('angular-ticketing-app')
-	.factory('TicketsService', TicketsService);
+	.factory('TicketService', TicketService);
 
-	function TicketsService($http, $q){
+	function TicketService($http, $q){
 		
-		var statusCallback, selectedStatus, ticketCallback = [];
+		var statusCallback, selectedStatus, menuResetCallback, ticketCallback = [];
 
 		function getAllTickets(){
 			var deferred = $q.defer();
@@ -28,21 +28,6 @@
 			var deferred = $q.defer();
 			$http({
 				url: '/api/tickets/' + id,
-				method: 'GET'
-			})
-			.success(function(data){
-				deferred.resolve(data);
-			})
-			.error(function(data){
-				deferred.reject(data);
-			})
-			return deferred.promise;
-		}
-
-		function getAssigneeList(){
-			var deferred = $q.defer();
-			$http({
-				url: '/api/assignees',
 				method: 'GET'
 			})
 			.success(function(data){
@@ -128,10 +113,18 @@
 			return ticketList;
 		}
 
+		function resetMenuBar(){
+			setStatus();
+			menuResetCallback();
+		}
+
+		function registerResetMenuBar(callback){
+			menuResetCallback = callback;
+		}
+
 		return {
 			getAllTickets: getAllTickets,
 			getSelectedStatus: getSelectedStatus,
-			getAssigneeList: getAssigneeList,
 			createTicket: createTicket,
 			setStatus: setStatus,
 			registerStatusCallback: registerStatusCallback,
@@ -139,7 +132,9 @@
 			updateTicketDetails: updateTicketDetails,
 			registerTicketListCallback: registerTicketListCallback,
 			updateTicketList: updateTicketList,
-			checkAndUpdateList: checkAndUpdateList
+			checkAndUpdateList: checkAndUpdateList,
+			registerResetMenuBar: registerResetMenuBar,
+			resetMenuBar: resetMenuBar
 		}
 	}
 })(angular);

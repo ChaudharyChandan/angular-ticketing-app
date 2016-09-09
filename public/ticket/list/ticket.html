@@ -1,5 +1,6 @@
 <section class="tickets-list">
-	<article class="ticket" ng-repeat="ticket in ticketList | orderBy: '-updated_at' | filter: { status: selectedStatus}" ui-sref="home.ticket-details({id: ticket.id})">
+	<article class="ticket" ng-repeat="ticket in filteredTicketList = (ticketList | orderBy: '-updated_at' | filter: { status: selectedStatus, tag_id: searchTagId})" ui-sref="home.ticket-details({id: ticket.id})">
+		<ng-tag id="ticket.tag_id"></ng-tag>
 		<div class="status-tag" ng-class="{'open': ticket.status === 'open', 'pending': ticket.status === 'pending', 'closed': ticket.status === 'closed'}">{{ticket.status}}</div>
 		<div>
 			<div class="client" ng-bind="ticket.name"></div>
@@ -10,3 +11,4 @@
 		</div>
 	</article>
 </section>
+<div ng-show="filteredTicketList.length===0" class="no-results">No tickets available!</div>

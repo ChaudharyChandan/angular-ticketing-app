@@ -3,17 +3,18 @@
 	'use strict';
 
 	angular.module('angular-ticketing-app')
-	.controller('TicketsController', TicketsController);
+	.controller('TicketController', TicketController);
 
-	function TicketsController($scope, $interval, ticketList, TicketsService){
+	function TicketController($scope, $interval, ticketList, TagService, TicketService){
 		$scope.ticketList = ticketList;
-		$scope.selectedStatus = TicketsService.getSelectedStatus();
+		$scope.selectedStatus = TicketService.getSelectedStatus();
+		$scope.searchTagId = TagService.getTag();
 
-		TicketsService.registerStatusCallback(function(status){
+		TicketService.registerStatusCallback(function(status){
 			$scope.selectedStatus = status;
 		});
 	
-		TicketsService.registerTicketListCallback(function(ticket){
+		TicketService.registerTicketListCallback(function(ticket){
 			var ticketsLen = ticketList.length;
 			for(var i=0;i<ticketsLen;i++){
 				if(ticketList[i].id == ticket.id){
@@ -31,6 +32,10 @@
 				ticket.timeAgo = (new Date()).getAgo(ticket.updated_at);
 			})
 		}, 1000);
+
+		TagService.registerTagCallback(function(id){
+			$scope.searchTagId = id;
+		})
 		
 	}
 })(angular);

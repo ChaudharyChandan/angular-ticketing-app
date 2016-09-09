@@ -5,13 +5,14 @@
 	angular.module('angular-ticketing-app')
 	.controller('TicketDetailsController', TicketDetailsController);
 
-	function TicketDetailsController($scope, $log, $stateParams, TicketsService){
+	function TicketDetailsController($scope, $log, $stateParams, tagList, TicketService, AssigneeService){
 		var id = $stateParams.id;
 		$scope.editMode = false;
 		$scope.assignees = [];
+		$scope.tags = tagList;
 		var editTicketCopy;
 
-		TicketsService.getTicketDetails($stateParams.id)
+		TicketService.getTicketDetails($stateParams.id)
 		.then(function(data){
 			$scope.ticket = data;
 			$scope.updatedAt = (new Date(data.updated_at)).toLocaleString();
@@ -19,7 +20,7 @@
 			$log.log('Unable to get ticket details');
 		});
 
-		TicketsService.getAssigneeList()
+		AssigneeService.getAssigneeList()
 		.then(function(data){
 			$scope.assignees = data;
 		}, function(){
@@ -32,19 +33,20 @@
 				subject: $scope.ticket.subject,
 				status: $scope.ticket.status,
 				description: $scope.ticket.description,
-				assignee_id: $scope.ticket.assignee_id
+				assignee_id: $scope.ticket.assignee_id,
+				tag_id: $scope.ticket.tag_id
 			};
 			editTicketCopy = angular.copy($scope.editTicket);
 		}
 
 		$scope.updateTicketDetails = function(){
 			if(!angular.equals(editTicketCopy, $scope.editTicket)){
-				TicketsService.updateTicketDetails(id, $scope.editTicket)
+				TicketService.updateTicketDetails(id, $scope.editTicket)
 				.then(function(data){
 					$scope.disableEditMode();
 					$scope.ticket = data;
 					$scope.updatedAt = (new Date(data.updated_at)).toLocaleString();
-					TicketsService.updateTicketList(data);
+					TicketService.updateTicketList(data);
 				}, function(data){
 					$log.log(data);
 				})
@@ -61,6 +63,17 @@
 			});
 			if(assignee){
 				return assignee.name;
+			} else{
+				return "";
+			}
+		}
+
+		$scope.getTagName = function(id){
+			var tag = $scope.tags.find(function(tag){
+				return tag.id === id;
+			});
+			if(tag){
+				return tag.name;
 			} else{
 				return "";
 			}

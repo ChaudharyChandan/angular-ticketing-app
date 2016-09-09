@@ -5,6 +5,7 @@ var app = express();
 
 var tickets = require('./routes/tickets');
 var assignees = require('./routes/assignees');
+var tags = require('./routes/tags');
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -21,6 +22,7 @@ app.use(function(req, res, next) {
 
 app.use('/api/tickets', tickets);
 app.use('/api/assignees', assignees);
+app.use('/api/tags', tags);
 
 app.all('/*', function(req, res, next) {
     res.sendFile('public/index.html', { root: __dirname });

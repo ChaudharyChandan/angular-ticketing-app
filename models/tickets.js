@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema,
-	autoIncrement = require('mongoose-auto-increment');
-  connection = require('../connection');
+    Schema = mongoose.Schema,
+    autoIncrement = require('mongoose-auto-increment');
+    connection = require('../connection');
 autoIncrement.initialize(connection);
 
 var ticketSchema = new Schema({
@@ -13,6 +13,7 @@ var ticketSchema = new Schema({
   subject: String,
   description: String,
   assignee_id: Number,
+  tag_id: Number,
   created_at: {
     type: Date,
     default: Date.now

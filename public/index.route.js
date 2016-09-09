@@ -12,8 +12,11 @@
 		.state('home', {
 			url: '/tickets',
 			resolve: {
-				ticketList: function(TicketsService){
-					return TicketsService.getAllTickets();
+				ticketList: function(TicketService){
+					return TicketService.getAllTickets();
+				},
+				tagList: function(TagService){
+					return TagService.getTagList();
 				}
 			},
 			views: {
@@ -29,8 +32,8 @@
 					controller: 'MenuController'
 				},
 				"main@home": {
-					templateUrl: 'tickets/tickets.html',
-					controller: 'TicketsController'
+					templateUrl: 'ticket/list/ticket.html',
+					controller: 'TicketController'
 				}
 			}
 		})
@@ -38,8 +41,8 @@
 			url: '/new',
 			views: {
 				"main@home": {
-					templateUrl: 'create/create-ticket.html',
-					controller: 'CreateTicketController'
+					templateUrl: 'ticket/new/new-ticket.html',
+					controller: 'NewTicketController'
 				}
 			}
 		})
@@ -47,7 +50,7 @@
 			url: '/{id}',
 			views: {
 				"main@home": {
-					templateUrl: 'details/ticket-details.html',
+					templateUrl: 'ticket/details/ticket-details.html',
 					controller: 'TicketDetailsController'
 				}
 			}
