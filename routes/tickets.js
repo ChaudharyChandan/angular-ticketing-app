@@ -40,7 +40,7 @@ router.post('/', function(req, res) {
 		status: ticket.status,
 		type: ticket.type,
 		subject: ticket.subject,
-		description: ticket.subject,
+		description: ticket.description,
 		tag_id: ticket.tag_id,
 		assignee_id: ticket.assignee_id
 	});
